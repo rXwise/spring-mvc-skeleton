@@ -1,0 +1,37 @@
+<div data-ng-controller="UserController as ctrl" class="jumbotron text-center">
+	<div class="row">
+		<h1>Welcome to a Spring User App!</h1>
+		<p>All current users</p>
+	</div>
+	<div class="row">
+		<ul class="list-group">
+			<li class="list-group-item" data-ng-repeat="u in ctrl.users">
+				<div class="row">
+					<div>
+						<span class="glyphicon glyphicon-user" aria-hidden="true" style="font-size: 25px;"></span>
+					</div>
+					<div class="col-md-12">
+						<p>{{u.id}}: {{u.username}}</p>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Username</th>
+					<th>Password</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-ng-repeat="u in ctrl.users">
+					<td><span>{{u.id}}</span></td>
+					<td><span>{{u.username}}</span></td>
+					<td><span>{{u.password}}</span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<md-button class="md-primary md-raised">Test button</md-button>
+</div>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="usersApp" data-ng-cloak>
+	<head>
+		<title>Users App</title>
+		<link href="../css/lib/angular-material.min.css" rel="stylesheet">
+		<link href="../css/main.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	</head>
+	<body data-ng-controller="UserController as ctrl">
+		<div layout="column">
+			<md-toolbar>
+				<div class="md-toolbar-tools">
+					<h1 flex>Spring/Angular - Users App</h1>
+					<md-menu>
+						<md-button data-ng-click="$mdMenu.open($event)" class="md-icon-button" aria-label="Menu">
+							<i class="material-icons">menu</i>
+						</md-button>
+						<md-menu-content width="4">
+							<md-menu-item>
+								<md-button>
+									<i class="material-icons">exit_to_app</i>
+									Logout
+								</md-button>
+							</md-menu-item>
+						</md-menu-content>
+					</md-menu>
+				</div>
+			</md-toolbar>
+			
+			<div flex layout="row" layout-padding>
+				<md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
+					<md-list>
+						<md-list-item data-ng-repeat="u in ctrl.users">
+							<md-button href="/users/{{u.id}}" data-ng-click="ctrl.selectUser(u)" data-ng-class="{'md-raised md-primary': u.id === ctrl.selected.id}" flex>
+								<i class="material-icons">account_box</i>
+								{{u.username}}
+							</md-button>
+						</md-list-item>
+						<md-list-item>
+							<md-button href="/users/new" data-ng-click="ctrl.newUser()" layout-align="start end" flex>
+								<i class="material-icons">person_add</i>
+								Add New User
+							</md-button>
+						</md-list-item>
+					</md-list>
+				</md-sidenav>
+				
+				<md-content flex id="content">
+					<md-toolbar>
+						<div class="md-toolbar-tools">{{ctrl.header}}</div>
+					</md-toolbar>
+					<div flex data-ng-view></div>
+				</md-content>
+			</div>
+		</div>
+		
+		<script src="../js/lib/angular.min.js"></script>
+		<script src="../js/lib/angular-route.min.js"></script>
+		<script src="../js/lib/angular-resource.min.js"></script>
+		<script src="../js/lib/angular-animate.min.js"></script>
+		<script src="../js/lib/angular-aria.min.js"></script>
+		<script src="../js/lib/angular-material.min.js"></script>
+		<script src="../js/app.js"></script>
+		<script src="../js/services/userService.js"></script>
+		<script src="../js/controllers/userController.js"></script>
+	</body>
+</html>

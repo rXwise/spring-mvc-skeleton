@@ -1,0 +1,18 @@
+
+	<md-card style="margin:0;">
+		<md-card-title>
+			<md-card-title-media>
+				<div class="md-media-lg card-media">
+					<i class="material-icons" style="font-size: 152px;">face</i>
+				</div>
+			</md-card-title-media>
+			<md-card-title-text>
+				<span class="md-headline">{{ctrl.selected.username}}</span>
+				<span class="md-subhead">This is a description of the user.</span>
+			</md-card-title-text>
+		</md-card-title>
+	</md-card>
+	<div class="user-button-wrap">
+		<md-button class="md-primary md-raised">Edit User</md-button>
+		<md-button class="md-warn md-raised" href="/" data-ng-click="ctrl.deleteUser(ctrl.selected.id)">Delete User</md-button>
+	</div>
